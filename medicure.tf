@@ -4,7 +4,7 @@ provider "aws" {
 }
 # Creating a VPC
 resource "aws_vpc" "project-vpc" {
- cidr_block = "192.168. 1.0/16"
+ cidr_block = "10.0.0.0/16"
 }
 
 # Create an Internet Gateway
@@ -35,7 +35,7 @@ resource "aws_route_table" "project-rt" {
 # Setting up the subnet
 resource "aws_subnet" "project-subnet" {
  vpc_id = aws_vpc.project-vpc.id
- cidr_block = "192.168. 1.0/24"
+ cidr_block = "10.0.0.0/24"
  availability_zone = "us-east-1a"
  tags = {
  Name = "project-subnet1"
@@ -110,7 +110,7 @@ resource "aws_network_interface" "project-ni" {
 resource "aws_eip" "project-eip" {
  vpc = true
  network_interface = aws_network_interface.project-ni.id
- associate_with_private_ip = "192.168. 1.0"
+ associate_with_private_ip = "10.0.1.0"
 }
 
 
