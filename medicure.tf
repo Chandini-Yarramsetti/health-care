@@ -110,7 +110,7 @@ resource "aws_network_interface" "project-ni" {
 resource "aws_eip" "project-eip" {
  vpc = true
  network_interface = aws_network_interface.project-ni.id
- associate_with_private_ip = "10.0.1.0"
+ associate_with_private_ip = "10.0.1.10"
 }
 
 
